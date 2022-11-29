@@ -59,9 +59,6 @@ public class CourierCreationApiTest  {
         String message = responseCreate.extract().path("message");
         assertEquals(409,statusCode);
         assertEquals(message,"Этот логин уже используется. Попробуйте другой.");
-        ValidatableResponse responseLogin = courierClient.login(Credentials.from(courier));
-        id = responseLogin.extract().path("id");
-        assertNotEquals(id,null);
     }
 
     @Test

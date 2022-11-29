@@ -1,5 +1,3 @@
-package models;
-
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import jdk.jfr.Description;

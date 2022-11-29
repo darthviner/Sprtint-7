@@ -37,8 +37,6 @@ public class CourierCreationApiTest  {
     @DisplayName("Successful Courier Creation Test")
     public void successfulCourierCreationApiTest(){
         ValidatableResponse responseCreate = courierClient.create(courier);
-//        boolean ok = responseCreate.extract().path("ok");
-//        assertEquals(ok,true);
         int statusCode = responseCreate.extract().statusCode();
         assertEquals(201,statusCode);
         ValidatableResponse responseLogin = courierClient.login(Credentials.from(courier));
@@ -54,6 +52,8 @@ public class CourierCreationApiTest  {
         ValidatableResponse responseCreate = courierClient.create(courier);
         int statusCode= responseCreate.extract().statusCode();
         assertEquals(201,statusCode);
+        courier.setFirstName("123");
+        courier.setPassword("123");
         responseCreate = courierClient.create(courier);
         statusCode = responseCreate.extract().statusCode();
         String message = responseCreate.extract().path("message");
